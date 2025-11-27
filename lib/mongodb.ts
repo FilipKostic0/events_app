@@ -14,14 +14,7 @@ declare global {
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-// Validate MongoDB URI exists
-if (!MONGODB_URI) {
-  throw new Error(
-    "Please define the MONGODB_URI environment variable inside .env"
-  );
-}
-
- // Initialize the cache on the global object to persist across hot reloads in development
+// Initialize the cache on the global object to persist across hot reloads in development
 const cached: MongooseCache = global.mongoose || { conn: null, promise: null };
 
 if (!global.mongoose) {
@@ -31,17 +24,24 @@ if (!global.mongoose) {
 
 //  Establishes and returns a connection to MongoDB
 async function connectToDatabase(): Promise<typeof mongoose> {
- 
+
   if (cached.conn) {
     return cached.conn;
   }
 
   if (!cached.promise) {
+    // Validate MongoDB URI exists
+    if (!MONGODB_URI) {
+      throw new Error(
+        "Please define the MONGODB_URI environment variable inside .env"
+      );
+    }
+
     const opts = {
       bufferCommands: false, // Disable command buffering for better error handling
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI!, opts).then((mongoose)=> {
+    cached.promise = mongoose.connect(MONGODB_URI!, opts).then((mongoose) => {
       return mongoose;
     });
   }
