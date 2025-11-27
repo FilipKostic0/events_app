@@ -1,4 +1,4 @@
-import mongoose, { Document, Model, Schema } from "mongoose";
+import mongoose, { Document, Schema, models, model } from "mongoose";
 
 // Typescript interface for Event document
 export interface IEvent extends Document {
@@ -183,8 +183,11 @@ EventSchema.pre<IEvent>("save", async function () {
   }
 });
 
+// Create compound index for common queries
+EventSchema.index({ date: 1, mode: 1 });
+
 // Create and export the Event model
-const Event: Model<IEvent> =
-  mongoose.models.Event || mongoose.model<IEvent>("Event", EventSchema);
+const Event = models.Event || model<IEvent>('Event', EventSchema);
+
 
 export default Event;
