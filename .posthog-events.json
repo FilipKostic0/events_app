@@ -1,0 +1,56 @@
+[
+  {
+    "eventName": "event_card_clicked",
+    "eventDescription": "User clicks on an event card to view details",
+    "filePath": "/home/filip/Documents/Learning/ThreeJS/events_app/components/EventCard.tsx",
+    "status": "implemented"
+  },
+  {
+    "eventName": "explore_events_clicked",
+    "eventDescription": "User clicks the Explore Events button to scroll to events",
+    "filePath": "/home/filip/Documents/Learning/ThreeJS/events_app/components/ExploreBtn.tsx",
+    "status": "implemented"
+  },
+  {
+    "eventName": "nav_home_clicked",
+    "eventDescription": "User clicks Home in navigation",
+    "filePath": "/home/filip/Documents/Learning/ThreeJS/events_app/components/Navbar.tsx",
+    "status": "implemented"
+  },
+  {
+    "eventName": "nav_events_clicked",
+    "eventDescription": "User clicks Events in navigation",
+    "filePath": "/home/filip/Documents/Learning/ThreeJS/events_app/components/Navbar.tsx",
+    "status": "implemented"
+  },
+  {
+    "eventName": "nav_create_event_clicked",
+    "eventDescription": "User clicks Create Event in navigation (conversion intent)",
+    "filePath": "/home/filip/Documents/Learning/ThreeJS/events_app/components/Navbar.tsx",
+    "status": "implemented"
+  },
+  {
+    "eventName": "nav_logo_clicked",
+    "eventDescription": "User clicks the logo to return home",
+    "filePath": "/home/filip/Documents/Learning/ThreeJS/events_app/components/Navbar.tsx",
+    "status": "implemented"
+  },
+  {
+    "eventName": "$pageview",
+    "eventDescription": "Automatic pageview tracking (handled by PostHog with defaults: '2025-05-24')",
+    "filePath": "/home/filip/Documents/Learning/ThreeJS/events_app/app/page.tsx",
+    "status": "autocaptured"
+  },
+  {
+    "eventName": "webgl_render_error",
+    "eventDescription": "WebGL rendering error occurred in LightRays component",
+    "filePath": "/home/filip/Documents/Learning/ThreeJS/events_app/components/LightRays.tsx",
+    "status": "implemented"
+  },
+  {
+    "eventName": "webgl_cleanup_error",
+    "eventDescription": "Error during WebGL cleanup in LightRays component",
+    "filePath": "/home/filip/Documents/Learning/ThreeJS/events_app/components/LightRays.tsx",
+    "status": "implemented"
+  }
+]
