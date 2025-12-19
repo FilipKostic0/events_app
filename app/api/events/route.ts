@@ -2,7 +2,6 @@ import connectToDatabase from "@/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import { Event } from "@/database";
 import { v2 as cloudinary } from "cloudinary";
-import { error } from "console";
 
 export async function POST(req: NextRequest) {
     try {
@@ -57,3 +56,4 @@ export async function GET() {
         return NextResponse.json({ message: 'Event fetching failed', error: e instanceof Error ? e.message : 'Unknown' }, { status: 500 })
     }
 }
+

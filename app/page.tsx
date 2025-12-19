@@ -1,11 +1,13 @@
 "use client";
 import EventCard from "@/components/EventCard";
 import ExploreBtn from "@/components/ExploreBtn";
-import { events } from "@/lib/constants";
+import { IEvent } from "@/database";
 
-const Page = () => {
-  // Note: PostHog automatically captures pageviews with defaults: '2025-05-24'
-  // No need for manual pageview tracking or useEffect hooks
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+const Page = async () => {
+  const response = await fetch(`${BASE_URL}/api/events`);
+  const { events } = await response.json();
 
   return (
     <section>
@@ -15,7 +17,7 @@ const Page = () => {
       <div className="mt-20 space-y-7" id="events">
         <h3>Featured Events</h3>
         <ul className="events list-none">
-          {events.map((event) => (
+          {events && events.length > 0 && events.map((event: IEvent) => (
             <li key={event.title}>
               <EventCard {...event} />
             </li>
